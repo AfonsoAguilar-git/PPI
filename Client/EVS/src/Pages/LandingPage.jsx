@@ -1,6 +1,6 @@
 function LandingPage({setView}) {
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-secondary">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">EVS</a>
     <div>

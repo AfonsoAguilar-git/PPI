@@ -10,10 +10,10 @@ function App() {
   const [currentView, setCurrentView] = useState("LandingPage");
 
   return (
-    <div>
+    <body>
       {currentView === "LandingPage" && <LandingPage setView={setCurrentView} />}
       {currentView === "Login" && <LoginPage setView={setCurrentView} />}
-    </div>
+    </body>
   );
   
 }

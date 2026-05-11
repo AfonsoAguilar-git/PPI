@@ -1,0 +1,18 @@
+.logincard{
+    width: fit-content;
+    min-width: 40%;
+    height: 80%;
+    margin:auto;
+    border-color: rgb(133, 133, 133);
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    
+    
+}
+
+.loginpage{
+    height: 100%;
+
+}
+
