@@ -5,15 +5,17 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import LandingPage from './Pages/LandingPage'
 import LoginPage from './Pages/LoginPage'
+import Navbar from './Components/Navbar'
 
 function App() {
   const [currentView, setCurrentView] = useState("LandingPage");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 return (
-  <body>
-    {currentView === "LandingPage" && <LandingPage setView={setCurrentView} />}
+  <section>
+    {currentView === "LandingPage" && <LandingPage setView={setCurrentView} isLoggedIn={isLoggedIn} />}
     {currentView === "Login" && <LoginPage setView={setCurrentView} />}
-  </body>
+  </section>
 );
   
 }

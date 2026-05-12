@@ -1,3 +1,20 @@
-function NavBar(content) {
+import GuestMenu from "./GuestMenu" 
+import UserMenu from "./UserMenu"
 
+function Navbar({setView, isLoggedIn}){
+    return (
+    <nav className="navbar navbar-expand-sm border-bottom">
+        <div className="container-fluid">
+            <a className="navbar-brand" href="#" onClick={() => setView("LandingPage")}>EVS</a>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="menu">
+                {isLoggedIn ? <UserMenu /> : <GuestMenu setView={setView}/>}
+            </div>
+        </div>
+    </nav>
+    )
 }
+
+export default Navbar
