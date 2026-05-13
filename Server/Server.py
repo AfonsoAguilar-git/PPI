@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 # Dentro de Server.py
@@ -6,6 +7,18 @@ from Server.database import users_collection, polls_collection
 from bson import ObjectId
 
 app = FastAPI(title="SVE - Sistema de Votação Eletrónica")
+
+
+
+
+# Configuração do CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"], # URL onde o seu React está a correr
+    allow_credentials=True,
+    allow_methods=["*"], # Permite todos os métodos (POST, GET, etc.)
+    allow_headers=["*"], # Permite todos os headers
+)
 
 
 class User(BaseModel):
@@ -18,6 +31,10 @@ class PollCreate(BaseModel):
     options: List[str]
     creator_id: int
 
+# Adiciona esta classe de modelo
+class LoginData(BaseModel):
+    username: str
+    password: str
 
 
 # 1. Criar Utilizador (com ID artificial)
@@ -29,6 +46,21 @@ async def create_user(user: User):
     user_dict = user.dict()
     users_collection.insert_one(user_dict)
     return {"message": "Utilizador criado com sucesso"}
+
+
+@app.post("/login")
+async def login(data: LoginData):
+    # Procura o utilizador na coleção do MongoDB
+    user = users_collection.find_one({"username": data.username, "password": data.password})
+    
+    if not user:
+        raise HTTPException(status_code=401, detail="Credenciais inválidas")
+    
+    return {
+        "user_id": user["user_id"], 
+        "username": user["username"],
+        "message": "Login realizado com sucesso"
+    }
 
 # 2. Criar Urna (Poll)
 @app.post("/polls/")
