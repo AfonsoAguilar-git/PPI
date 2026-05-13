@@ -2,7 +2,7 @@ function SignUpForm({setView}){
     return (
     <form className="container-fluid px-4 pb-3">
         <div class="container-fluid pt-4" >
-            <h1 class="text-center font-monospace fw-bold">Sign Up</h1>
+            <h1 class="text-center fw-bold">Sign Up</h1>
         </div>
         <div className="mb-3">
             <label className="form-label">Username</label>

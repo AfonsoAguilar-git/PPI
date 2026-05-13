@@ -13,6 +13,7 @@
     display: grid;
     justify-items: center;
     align-items: center;
+    background-color: white;
     border-color: rgba(133, 133, 133, .5);
     border-radius: 20px;
     border-width: .1rem;
@@ -24,8 +25,8 @@
 }
 
 .authLogo{
-    width: 300px;
-    max-height: 70px;
+    width: 25rem;
+    height: 5rem;
     animation-name: logoAppear;
     animation-duration: .35s;
     animation-timing-function: ease-out;

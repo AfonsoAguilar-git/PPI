@@ -6,7 +6,7 @@ function AuthPage({setView, currentView}){
         <section className="container-fluid position-relative top-50 start-50 translate-middle">
             <div className="row mb-3 align-items-center justify-content-center">
                 <div className="authLogo container text-center">
-                    <button class="text-black p-2 fs-1 font-monospace fw-bold" onClick={() => setView("LandingPage")}>Voting System</button>
+                    <button class="text-black fs-1 p-2 fw-bold" onClick={() => setView("LandingPage")}>Voting System</button>
                 </div>
             </div>
             <div className="row align-items-center justify-content-center">
