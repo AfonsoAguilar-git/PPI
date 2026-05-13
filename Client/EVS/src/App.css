@@ -1,11 +1,48 @@
-.loginCard{
-    width: fit-content;
-    min-width: 40%;
-    height: 80%;
-    margin:auto;
-    border-color: rgb(133, 133, 133);
-    border-radius: 20px;
-    border-width: medium;
-    border-style: solid;
+@keyframes cardAppear {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0px);}
 }
 
+@keyframes logoAppear {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0px)}
+}
+
+.loginCard{
+    width: 400px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-color: rgba(133, 133, 133, .5);
+    border-radius: 20px;
+    border-width: .1rem;
+    border-style: solid;
+    box-shadow: 0px 5px 15px 5px rgba(133, 133, 133, 0.15);
+    animation-name: cardAppear;
+    animation-duration: .35s;
+    animation-timing-function: ease-out;
+}
+
+.authLogo{
+    width: 300px;
+    max-height: 70px;
+    animation-name: logoAppear;
+    animation-duration: .35s;
+    animation-timing-function: ease-out;
+    transition-duration: .25s;
+}
+
+.authLogo > button{
+    max-height: 70px;
+    transition-duration: .25s;
+    border: none;
+    background-color:rgba(0,0,0,0);
+}
+
+.authLogo > button:hover{
+    transform: translateY(-5px) scale(1.05);
+}
+
+.authLogo > button:active{
+    transform: translateY(5px) scale(0.95);
+}

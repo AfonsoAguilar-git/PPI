@@ -4,7 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import LandingPage from './Pages/LandingPage'
-import LoginPage from './Pages/LoginPage'
+import AuthPage from './Pages/AuthPage'
 import Navbar from './Components/Navbar'
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 return (
-  <section>
+  <section className='h-100'>
     {currentView === "LandingPage" && <LandingPage setView={setCurrentView} isLoggedIn={isLoggedIn} />}
-    {currentView === "Login" && <LoginPage setView={setCurrentView} />}
+    {(currentView === "Login" || currentView === "SignUp") && <AuthPage setView={setCurrentView} currentView={currentView} />}
   </section>
 );
   

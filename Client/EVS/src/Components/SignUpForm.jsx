@@ -1,8 +1,12 @@
-function LoginForm({setView}){
+function SignUpForm({setView}){
     return (
     <form className="container-fluid px-4 pb-3">
         <div class="container-fluid pt-4" >
-            <h1 class="text-center font-monospace fw-bold">Login</h1>
+            <h1 class="text-center font-monospace fw-bold">Sign Up</h1>
+        </div>
+        <div className="mb-3">
+            <label className="form-label">Username</label>
+            <input type="text" className="form-control"></input>
         </div>
         <div className="mb-3">
             <label className="form-label">Email Adress</label>
@@ -15,12 +19,12 @@ function LoginForm({setView}){
         <div className="container">
             <div className="row p-2">
                 <a href="#" type="button" className="btn btn-dark my-1 my-sm-0 mx-sm-1">
-                    Login
+                    Sign Up
                 </a>
             </div>
             <div className="row p-2">
-                <button type="button" className="btn btn-outline-dark my-1 my-sm-0 mx-sm-1" onClick={() => setView("SignUp")}>
-                    Sign Up
+                <button href="#" type="button" className="btn btn-outline-dark my-1 my-sm-0 mx-sm-1" onClick={() => setView("Login")}>
+                    Login
                 </button>
             </div>
         </div>
@@ -28,4 +32,4 @@ function LoginForm({setView}){
     )
 }
 
-export default LoginForm
+export default SignUpForm
