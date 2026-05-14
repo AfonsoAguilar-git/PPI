@@ -8,6 +8,7 @@ import AuthPage from './Pages/AuthPage'
 import Navbar from './Components/Navbar'
 import DotField from './Components/DotField'
 import  useAuth  from './hooks/usestates'
+import PollsPage from './Pages/PollsPage'
 
 function App() {
   const [currentView, setCurrentView] = useState("LandingPage");
@@ -34,8 +35,8 @@ return (
       />
     </div>
    {currentView === "LandingPage" && (<LandingPage setView={setCurrentView} isLoggedIn={isLoggedIn} user={user} onlogout={logout} />)}
-   {(currentView === "Login" || currentView === "SignUp") && (<AuthPage setView={setCurrentView} currentView={currentView}  onLogin={login} authError={error}/>
-)}
+   {(currentView === "Login" || currentView === "SignUp") && (<AuthPage setView={setCurrentView} currentView={currentView}  onLogin={login} authError={error}/>)}
+   {currentView === "PollsPage" && (<PollsPage setView={setCurrentView} isLoggedIn={isLoggedIn} user={user} onlogout={logout}/>)}
   </section>
 );
   

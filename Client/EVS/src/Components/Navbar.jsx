@@ -10,7 +10,7 @@ function Navbar({setView, isLoggedIn, onlogout}){
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="menu">
-                {isLoggedIn ? <UserMenu onlogout={onlogout} /> : <GuestMenu setView={setView}/>}
+                {isLoggedIn ? <UserMenu onlogout={onlogout} setView={setView} /> : <GuestMenu setView={setView}/>}
             </div>
         </div>
     </nav>
