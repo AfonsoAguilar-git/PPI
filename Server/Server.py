@@ -22,7 +22,7 @@ app.add_middleware(
 
 
 class User(BaseModel):
-    user_id: int  # ID artificial
+    user_id: Optional[int] = None
     username: str
     password: str
 
@@ -37,16 +37,30 @@ class LoginData(BaseModel):
     password: str
 
 
-# 1. Criar Utilizador (com ID artificial)
-@app.post("/users/")
-async def create_user(user: User):
-    if users_collection.find_one({"user_id": user.user_id}):
-        raise HTTPException(status_code=400, detail="ID de utilizador já existe")
-    
-    user_dict = user.dict()
-    users_collection.insert_one(user_dict)
-    return {"message": "Utilizador criado com sucesso"}
 
+
+
+
+
+
+
+# 1. Criar Utilizador (com ID artificial)
+
+@app.post("/signup")
+async def create_user(user_in: User): # Recebe username e password
+    if users_collection.find_one({"username": user_in.username}):
+        raise HTTPException(status_code=400, detail="Este utilizador já existe")
+    
+    # Criar o dicionário final com o ID artificial
+    import random
+    user_dict = {
+        "user_id": random.randint(1000, 9999), # Teu ID artificial
+        "username": user_in.username,
+        "password": user_in.password
+    }
+    
+    users_collection.insert_one(user_dict)
+    return {"user_id": user_dict["user_id"], "username": user_dict["username"]}
 
 @app.post("/login")
 async def login(data: LoginData):

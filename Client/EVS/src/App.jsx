@@ -12,7 +12,7 @@ import PollsPage from './Pages/PollsPage'
 
 function App() {
   const [currentView, setCurrentView] = useState("LandingPage");
-  const { user, login, isLoggedIn, loading, error, logout} = useAuth();
+  const { user, signup, login, isLoggedIn, loading, error, logout} = useAuth();
 
   if (loading) return <div>A carregar...</div>;
 
@@ -35,7 +35,7 @@ return (
       />
     </div>
    {currentView === "LandingPage" && (<LandingPage setView={setCurrentView} isLoggedIn={isLoggedIn} user={user} onlogout={logout} />)}
-   {(currentView === "Login" || currentView === "SignUp") && (<AuthPage setView={setCurrentView} currentView={currentView}  onLogin={login} authError={error}/>)}
+   {(currentView === "Login" || currentView === "SignUp") && (<AuthPage setView={setCurrentView} currentView={currentView}  onLogin={login} onSignup={signup} authError={error}/>)}
    {currentView === "PollsPage" && (<PollsPage setView={setCurrentView} isLoggedIn={isLoggedIn} user={user} onlogout={logout}/>)}
   </section>
 );
