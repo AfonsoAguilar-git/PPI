@@ -3,16 +3,16 @@ import Pollcard from "../Components/Pollcard"
 
 function PollsPage({setView, isLoggedIn, onlogout}){
     return(
-        <section className="d-flex flex-column min-vh-100">
+        <section>
             <Navbar setView={setView} isLoggedIn={isLoggedIn} onlogout={onlogout}/>
-            <div className="container-fluid bg-dark flex-grow-1">
-                <div className="row">
-                    <div className="col">
-                        <Pollcard></Pollcard>
-
-                    </div>
-                </div>
-            </div>
+            <nav className="container-fluid">
+                <ul className="row">
+                    <Pollcard />
+                    <Pollcard />
+                    <Pollcard />
+                    <Pollcard />
+                </ul>
+            </nav>
         </section>
     )
 }

@@ -24,6 +24,22 @@
     animation-timing-function: ease-out;
 }
 
+.PollCard{
+    width: 400px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+    border-color: rgba(133, 133, 133, .5);
+    border-radius: 20px;
+    border-width: .1rem;
+    border-style: solid;
+    box-shadow: 0px 5px 15px 5px rgba(133, 133, 133, 0.15);
+    animation-name: cardAppear;
+    animation-duration: .35s;
+    animation-timing-function: ease-out;
+}
+
 .authLogo{
     width: 25rem;
     height: 5rem;

@@ -18,7 +18,7 @@ function App() {
 
 return (
   <section className='h-100 font-monospace'>
-    <div className='h-100 w-100 position-fixed'>
+    <div className='z-n1 h-100 w-100 position-fixed'>
       <DotField
         dotRadius={1.5}
         dotSpacing={23}
